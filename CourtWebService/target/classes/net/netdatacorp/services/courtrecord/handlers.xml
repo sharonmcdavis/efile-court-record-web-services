@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+  <handler-chain>
+    <handler>
+      <handler-name>net.netdatacorp.endpoint.courtrecord.Inflate</handler-name>
+      <handler-class>net.netdatacorp.endpoint.courtrecord.Inflate</handler-class>
+    </handler>
+    <handler>
+      <handler-name>net.netdatacorp.endpoint.courtrecord.Increment</handler-name>
+      <handler-class>net.netdatacorp.endpoint.courtrecord.Increment</handler-class>
+    </handler>
+  </handler-chain>
+</handler-chains>

@@ -1,0 +1,13 @@
+net\netdatacorp\endpoint\CourtRecordImpl.class
+net\netdatacorp\endpoint\EndpointConfig.class
+net\netdatacorp\endpoint\Inflate.class
+net\netdatacorp\Application.class
+net\netdatacorp\services\courtrecord\CourtRecordPortType.class
+net\netdatacorp\types\courtrecord\package-info.class
+net\netdatacorp\client\CourtRecordClient.class
+net\netdatacorp\types\courtrecord\Greeting.class
+net\netdatacorp\client\ClientConfig.class
+net\netdatacorp\endpoint\Increment.class
+net\netdatacorp\types\courtrecord\ObjectFactory.class
+net\netdatacorp\services\courtrecord\CourtRecordService.class
+net\netdatacorp\types\courtrecord\Person.class

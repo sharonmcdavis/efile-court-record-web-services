@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="CourtRecord"
+  targetNamespace="http://netdatacorp.net/services/courtrecord"
+  xmlns:tns="http://netdatacorp.net/services/courtrecord" xmlns:types="http://netdatacorp.net/types/courtrecord"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://netdatacorp.net/types/courtrecord"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+      attributeFormDefault="unqualified" version="1.0">
+
+      <xsd:element name="person">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="firstName" type="xsd:string" />
+            <xsd:element name="lastName" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="greeting">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="greeting" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+
+  <wsdl:message name="SayHelloRequest">
+    <wsdl:part name="person" element="types:person" />
+  </wsdl:message>
+
+  <wsdl:message name="SayHelloResponse">
+    <wsdl:part name="greeting" element="types:greeting" />
+  </wsdl:message>
+
+  <wsdl:portType name="CourtRecord_PortType">
+    <wsdl:operation name="sayHello">
+      <wsdl:input message="tns:SayHelloRequest" />
+      <wsdl:output message="tns:SayHelloResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="CourtRecord_SoapBinding" type="tns:CourtRecord_PortType">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sayHello">
+      <soap:operation
+        soapAction="http://netdatacorp.net/services/courtrecord/sayHello" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="CourtRecord_Service">
+    <wsdl:documentation>Court Record service</wsdl:documentation>
+    <wsdl:port name="CourtRecord_Port" binding="tns:CourtRecord_SoapBinding">
+      <soap:address location="http://localhost:9090/netdatacorp/ws/courtrecord" />
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>
