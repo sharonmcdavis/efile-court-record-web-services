@@ -1,10 +1,15 @@
 package net.netdatacorp.endpoint;
 
+import javax.jws.HandlerChain;
+
+import net.netdatacorp.beans.InputClass;
+import net.netdatacorp.beans.ResponseClass;
 import net.netdatacorp.services.courtrecord.CourtRecordPortType;
 import net.netdatacorp.types.courtrecord.Greeting;
 import net.netdatacorp.types.courtrecord.ObjectFactory;
 import net.netdatacorp.types.courtrecord.Person;
 
+@HandlerChain(file = "/net/netdatacorp/services/courtrecord/handlers.xml")
 public class CourtRecordImpl implements CourtRecordPortType {
 
   @Override
@@ -18,15 +23,8 @@ public class CourtRecordImpl implements CourtRecordPortType {
     return response;
   }
 
-@Override
-public int sum(int add1, int add2) {
-	System.out.println("\n\nin the sum method!");
-	return add1 + add2;
-}
-
-@Override
-public int multiply(int mul1, int mul2) {
-	System.out.println("\n\nin the multiply method!");
-	return mul1 * mul2;
-}
+	public ResponseClass CreateCase(InputClass inputData) {
+		System.out.println("in the create case method");
+		return null;
+	}
 }
