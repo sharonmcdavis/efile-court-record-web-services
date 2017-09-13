@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServicesProfile-Definitions-4.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServicesProfile-Definitions-4.0" version="4.0">
+	<xsd:annotation>
+		<xsd:documentation>CaseListQueryMessage</xsd:documentation>
+		<xsd:appinfo>
+			<i:ConformantIndicator>true</i:ConformantIndicator>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:complexType name="tfreqprcInput">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="IO_DOCUMENT" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="IO_FUNCTION" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="IO_XML" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecordFilingRequestMessageType">
+		<xsd:annotation>
+			<xsd:documentation>This is a query for a list of cases that match a set of criteria including case participants, case classification, case status, and date of the case was initiated.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="request" type="tfreqprcInput"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RecordFilingRequestMessage" type="RecordFilingRequestMessageType">
+		<xsd:annotation>
+			<xsd:documentation>This is a query for a list of cases that match a set of criteria including case participants, case classification, case status, and date of the case was initiated.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:tyler:ecf:extensions:ServiceInformationHistoryResponseMessage" xmlns:j="http://niem.gov/niem/domains/jxdm/4.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:ecf="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CommonTypes-4.0" targetNamespace="urn:tyler:ecf:extensions:ServiceInformationHistoryResponseMessage">
+	<xsd:annotation>
+		<xsd:documentation>ServiceInformationHistoryResponseMessage</xsd:documentation>
+		<xsd:appinfo>
+			<i:ConformantIndicator>true</i:ConformantIndicator>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:complexType name="tfreqprcResult">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="IO_XML" type="xsd:anyType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ServiceInformationHistoryResponseMessageType">
+		<xsd:annotation>
+			<xsd:documentation>The response to a ServiceInformationHistoryQueryMessage, setting forth the requested extended information.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="return" type="tfreqprcResult"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ServiceInformationHistoryResponseMessage" type="ServiceInformationHistoryResponseMessageType">
+		<xsd:annotation>
+			<xsd:documentation>The response to a serviceInformationHistoryQueryMessage, setting forth the requested extended information.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

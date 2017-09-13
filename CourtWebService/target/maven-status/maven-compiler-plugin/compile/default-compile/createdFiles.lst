@@ -27,7 +27,6 @@ net\netdatacorp\beans\Messages.class
 oasis\names\tc\legalxml_courtfiling\schema\xsd\caselistquerymessage_4\CaseListQueryMessageType.class
 oasis\names\tc\legalxml_courtfiling\schema\xsd\casequerymessage_4\package-info.class
 tyler\ecf\extensions\createcasemessage\package-info.class
-net\netdatacorp\client\ClientConfig.class
 net\netdatacorp\beans\LogonSpec.class
 tyler\ecf\extensions\serviceattachcaselistquerymessage\package-info.class
 net\netdatacorp\services\courtrecord\CourtRecordService.class
@@ -53,7 +52,6 @@ net\netdatacorp\util\Util.class
 net\netdatacorp\endpoint\EndpointConfig.class
 net\netdatacorp\jdbc\IConnectionFactory.class
 oasis\names\tc\legalxml_courtfiling\wsdl\webservicemessagingprofile_definitions_4_0\CourtRecordMdeService.class
-net\netdatacorp\client\CourtRecordClient.class
 tyler\ecf\extensions\serviceinformationhistoryresponsemessage\ServiceInformationHistoryResponseMessageType.class
 net\netdatacorp\beans\Constants.class
 net\netdatacorp\endpoint\MdeHandler.class

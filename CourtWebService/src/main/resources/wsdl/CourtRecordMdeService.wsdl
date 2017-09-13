@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This WSDL document defines the interface to all Major Design Elements (MDEs) in the OASIS Electronic Court Filing 4.0 specification.
+    -->
+<definitions 
+	xmlns:wsmp="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:nc="http://niem.gov/niem/niem-core/2.0"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsrmp="http://docs.oasis-open.org/ws-rx/wsrmp/200702"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:i="http://niem.gov/niem/appinfo/2.0"
+	xmlns:ecf="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CommonTypes-4.0"
+	xmlns:wspd="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServicesProfile-Definitions-4.0" 
+	xmlns:message="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:MessageReceiptMessage-4.0"
+	xmlns:caselistquery="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseListQueryMessage-4.0"
+	xmlns:caselistresponse="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseListResponseMessage-4.0"
+	xmlns:casequery="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseQueryMessage-4.0"
+	xmlns:caseresponse="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseResponseMessage-4.0"
+	xmlns:docquery="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentQueryMessage-4.0"
+	xmlns:docresponse="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentResponseMessage-4.0"
+	xmlns:servicequery="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:ServiceInformationQueryMessage-4.0"
+	xmlns:serviceresponse="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:ServiceInformationResponseMessage-4.0"
+	xmlns:createcase="urn:tyler:ecf:extensions:CreateCaseMessage"
+	xmlns:servicehist="urn:tyler:ecf:extensions:ServiceInformationHistoryQueryMessage"
+	xmlns:servicehistresponse="urn:tyler:ecf:extensions:ServiceInformationHistoryResponseMessage"
+	xmlns:serviceattach="urn:tyler:ecf:extensions:ServiceAttachCaseListQueryMessage"
+	xmlns:serviceattachresponse="urn:tyler:ecf:extensions:ServiceAttachCaseListResponseMessage"
+	targetNamespace="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0">
+	
+	<wsdl:types>
+		<xsd:schema xmlns="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0" 
+		targetNamespace="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0">
+			<xsd:annotation>
+				<xsd:documentation>ECF 4.0 Web services SIP WSDL Schema</xsd:documentation>
+				<xsd:appinfo>
+					<i:ConformantIndicator>true</i:ConformantIndicator>
+				</xsd:appinfo>
+			</xsd:annotation>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServicesProfile-Definitions-4.0" schemaLocation="message/RecordFilingRequestMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:MessageReceiptMessage-4.0" schemaLocation="message/ECF-4.0-MessageReceiptMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseListQueryMessage-4.0" schemaLocation="message/ECF-4.0-CaseListQueryMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseListResponseMessage-4.0" schemaLocation="message/ECF-4.0-CaseListResponseMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseQueryMessage-4.0" schemaLocation="message/ECF-4.0-CaseQueryMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CaseResponseMessage-4.0" schemaLocation="message/ECF-4.0-CaseResponseMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentQueryMessage-4.0" schemaLocation="message/ECF-4.0-DocumentQueryMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentResponseMessage-4.0" schemaLocation="message/ECF-4.0-DocumentResponseMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:ServiceInformationQueryMessage-4.0" schemaLocation="message/ECF-4.0-ServiceInformationQueryMessage.xsd"/>
+			<xsd:import namespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:ServiceInformationResponseMessage-4.0" schemaLocation="message/ECF-4.0-ServiceInformationResponseMessage.xsd"/>
+			<xsd:import namespace="urn:tyler:ecf:extensions:CreateCaseMessage" schemaLocation="substitution/CreateCase.xsd"/>
+			<xsd:import namespace="urn:tyler:ecf:extensions:ServiceInformationHistoryQueryMessage" schemaLocation="substitution/ServiceInformationHistoryQuery.xsd"/>
+			<xsd:import namespace="urn:tyler:ecf:extensions:ServiceInformationHistoryResponseMessage" schemaLocation="substitution/ServiceInformationHistoryResponse.xsd"/>
+			<xsd:import namespace="urn:tyler:ecf:extensions:ServiceAttachCaseListQueryMessage" schemaLocation="substitution/ServiceAttachCaseListQuery.xsd"/>
+			<xsd:import namespace="urn:tyler:ecf:extensions:ServiceAttachCaseListResponseMessage" schemaLocation="substitution/ServiceAttachCaseListResponse.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<message name="RecordFilingRequest">
+		<part name="RecordFilingRequestMessage" element="wspd:RecordFilingRequestMessage"/>
+	</message>
+	<message name="RecordFilingResponse">
+		<part name="MessageReceiptMessage" element="message:MessageReceiptMessage"/>
+	</message>
+	<message name="GetCaseListRequest">
+		<part name="CaseListQueryMessage" element="caselistquery:CaseListQueryMessage"/>
+	</message>
+	<message name="GetCaseListResponse">
+		<part name="CaseListResponseMessage" element="caselistresponse:CaseListResponseMessage"/>
+	</message>
+	<message name="GetCaseRequest">
+		<part name="CaseQueryMessage" element="casequery:CaseQueryMessage"/>
+	</message>
+	<message name="GetCaseResponse">
+		<part name="CaseResponseMessage" element="caseresponse:CaseResponseMessage"/>
+	</message>
+	<message name="GetDocumentRequest">
+		<part name="DocumentQueryMessage" element="docquery:DocumentQueryMessage"/>
+	</message>
+	<message name="GetDocumentResponse">
+		<part name="DocumentResponseMessage" element="docresponse:DocumentResponseMessage"/>
+	</message>
+	<message name="GetServiceInformationRequest">
+		<part name="ServiceInformationQueryMessage" element="servicequery:ServiceInformationQueryMessage"/>
+	</message>
+	<message name="GetServiceInformationResponse">
+		<part name="ServiceInformationResponseMessage" element="serviceresponse:ServiceInformationResponseMessage"/>
+	</message>
+	<message name="CreateCaseRequest">
+		<part name="CreateCaseMessage" element="createcase:CreateCaseMessage"/>
+	</message>
+	<message name="CreateCaseResponse">
+		<part name="MessageReceiptMessage" element="message:MessageReceiptMessage"/>
+	</message>
+	<message name="GetServiceInformationHistoryRequest">
+		<part name="ServiceInformationHistoryQueryMessage" element="servicehist:ServiceInformationHistoryQueryMessage"/>
+	</message>
+	<message name="GetServiceInformationHistoryResponse">
+		<part name="ServiceInformationHistoryResponseMessage" element="servicehistresponse:ServiceInformationHistoryResponseMessage"/>
+	</message>
+	<message name="GetServiceAttachCaseListRequest">
+		<part name="ServiceAttachCaseListQueryMessage" element="serviceattach:ServiceAttachCaseListQueryMessage"/>
+	</message>
+	<message name="GetServiceAttachCaseListResponse">
+		<part name="ServiceAttachCaseListResponseMessage" element="serviceattachresponse:ServiceAttachCaseListResponseMessage"/>
+	</message>
+	<portType name="CourtRecordMdeService">
+		<operation name="RecordFiling">
+			<input name="RecordFilingRequest" message="wsmp:RecordFilingRequest"/>
+			<output name="RecordFilingResponse" message="wsmp:RecordFilingResponse"/>
+		</operation>
+		<operation name="GetCaseList">
+			<input name="GetCaseListRequest" message="wsmp:GetCaseListRequest"/>
+			<output name="GetCaseListResponse" message="wsmp:GetCaseListResponse"/>
+		</operation>
+		<operation name="GetCase">
+			<input name="GetCaseRequest" message="wsmp:GetCaseRequest"/>
+			<output name="GetCaseResponse" message="wsmp:GetCaseResponse"/>
+		</operation>
+		<operation name="GetDocument">
+			<input name="GetDocumentRequest" message="wsmp:GetDocumentRequest"/>
+			<output name="GetDocumentResponse" message="wsmp:GetDocumentResponse"/>
+		</operation>
+		<operation name="GetServiceInformation">
+			<input name="GetServiceInformationRequest" message="wsmp:GetServiceInformationRequest"/>
+			<output name="GetServiceInformationResponse" message="wsmp:GetServiceInformationResponse"/>
+		</operation>
+		<operation name="CreateCase">
+			<input name="CreateCaseRequest" message="wsmp:CreateCaseRequest"/>
+			<output name="CreateCaseResponse" message="wsmp:CreateCaseResponse"/>
+		</operation>
+		<operation name="GetServiceInformationHistory">
+			<input name="GetServiceInformationHistoryRequest" message="wsmp:GetServiceInformationHistoryRequest"/>
+			<output name="GetServiceInformationHistoryResponse" message="wsmp:GetServiceInformationHistoryResponse"/>
+		</operation>
+		<operation name="GetServiceAttachCaseList">
+			<input name="GetServiceAttachCaseListRequest" message="wsmp:GetServiceAttachCaseListRequest"/>
+			<output name="GetServiceAttachCaseListResponse" message="wsmp:GetServiceAttachCaseListResponse"/>
+		</operation>
+	</portType>
+	<binding name="CourtRecordMdeServicePortBinding" type="wsmp:CourtRecordMdeService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsp:PolicyReference URI="#MyPolicy"/>
+		<operation name="RecordFiling">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/RecordFilingRequest"/>
+			<input name="RecordFilingRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="RecordFilingResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCaseList">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetCaseListRequest"/>
+			<input name="GetCaseListRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetCaseListResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCase">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetCaseRequest"/>
+			<input name="GetCaseRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetCaseResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetDocument">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetDocumentRequest"/>
+			<input name="GetDocumentRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetDocumentResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetServiceInformation">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetServiceInformationRequest"/>
+			<input name="GetServiceInformationRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetServiceInformationResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateCase">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/CreateCaseRequest"/>
+			<input name="CreateCaseRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="CreateCaseResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetServiceInformationHistory">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetServiceInformationHistoryRequest"/>
+			<input name="GetServiceInformationHistoryRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetServiceInformationHistoryResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetServiceAttachCaseList">
+			<soap:operation soapAction="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0/CourtRecordMdeService/GetServiceAttachCaseListRequest"/>
+			<input name="GetServiceAttachCaseListRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="GetServiceAttachCaseListResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<wsp:UsingPolicy wsdl:required="true"/>
+	<wsp:Policy wsu:Id="MyPolicy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"/>
+				<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:TransportToken>
+							<wsp:Policy>
+								<sp:HttpsToken RequireClientCertificate="false"/>
+							</wsp:Policy>
+						</sp:TransportToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic256/>
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Lax/>
+							</wsp:Policy>
+						</sp:Layout>
+						<sp:IncludeTimestamp/>
+					</wsp:Policy>
+				</sp:TransportBinding>
+				<sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+							<wsp:Policy>
+								<sp:WssX509V3Token10/>
+							</wsp:Policy>
+						</sp:X509Token>
+					</wsp:Policy>
+				</sp:EndorsingSupportingTokens>
+				<sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:MustSupportRefKeyIdentifier/>
+						<sp:MustSupportRefIssuerSerial/>
+					</wsp:Policy>
+				</sp:Wss10>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<service name="CourtRecordMdeService">
+		<port name="CourtRecordMdeServicePort" binding="wsmp:CourtRecordMdeServicePortBinding">
+			<soap:address location="http://localhost:9082/CourtRecordMde/CourtRecordMdeService"/>
+		</port>
+	</service>
+</definitions>

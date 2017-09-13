@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentQueryMessage-4.0" xmlns:j="http://niem.gov/niem/domains/jxdm/4.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:ecf="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CommonTypes-4.0" targetNamespace="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:DocumentQueryMessage-4.0" version="4.0">
+	<xsd:annotation>
+		<xsd:documentation>DocumentQueryMessage</xsd:documentation>
+		<xsd:appinfo>
+			<i:ConformantIndicator>true</i:ConformantIndicator>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:complexType name="tfreqprcInput">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="IO_DOCUMENT" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="IO_FUNCTION" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="IO_XML" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DocumentQueryMessageType">
+		<xsd:annotation>
+			<xsd:documentation>A request for an electronic document in the court's official record. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="request" type="tfreqprcInput"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DocumentQueryMessage" type="DocumentQueryMessageType">
+		<xsd:annotation>
+			<xsd:documentation>A request for an electronic document in the court's official record. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

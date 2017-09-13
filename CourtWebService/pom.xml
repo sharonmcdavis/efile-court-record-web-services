@@ -45,6 +45,30 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.ibm.connector2</groupId>
+			<artifactId>ccf2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Users\sdavis\Desktop\eFile_Project_Files\builds\lib\nexus\ccf2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.connector.as400</groupId>
+			<artifactId>confighelper</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Users\sdavis\Desktop\eFile_Project_Files\builds\lib\nexus\confighelper.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.connector2.iseries</groupId>
+			<artifactId>iseriespgmcallclient</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Users\sdavis\Desktop\eFile_Project_Files\builds\lib\nexus\iseriespgmcallclient.jar</systemPath>
+		</dependency>
+
+		<dependency>
 			<groupId>net.sf.jt400</groupId>
 			<artifactId>jt400</artifactId>
 			<version>9.3</version>
@@ -84,4 +108,26 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://172.16.1.217:8081/repository/maven-central/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>releases</id>
+			<url>http://172.16.1.217:8081/repository/maven-releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

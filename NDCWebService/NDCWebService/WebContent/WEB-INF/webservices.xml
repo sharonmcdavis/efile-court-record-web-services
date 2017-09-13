@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webservices xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_1_3.xsd" version="1.3">
+	<webservice-description>
+		<webservice-description-name>NDCService</webservice-description-name>
+		<port-component>
+			<port-component-name>SvcProdPortType</port-component-name>
+			<wsdl-service xmlns:pfx="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0">
+			pfx:NDCService</wsdl-service>
+			<wsdl-port xmlns:pfx="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0">
+			pfx:NDCSvcProdPort</wsdl-port>
+			<enable-mtom>false</enable-mtom>
+			<service-endpoint-interface>oasis.names.tc.legalxml_courtfiling.wsdl.webservicemessagingprofile_definitions_4.SvcProdPortType</service-endpoint-interface>
+			<service-impl-bean>
+				<servlet-link>
+				oasis.names.tc.legalxml_courtfiling.wsdl.webservicemessagingprofile_definitions_4.SvcProdPortBindingImpl</servlet-link>
+			</service-impl-bean>
+		</port-component>
+	</webservice-description>
+</webservices>

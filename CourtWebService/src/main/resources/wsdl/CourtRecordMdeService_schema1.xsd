@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0" 
+	version="1.0" xmlns:tns="urn:oasis:names:tc:legalxml-courtfiling:wsdl:WebServiceMessagingProfile-Definitions-4.0">
+
+  <xs:element name="RecordFiling" type="tns:RecordFiling"/>
+
+  <xs:element name="RecordFilingResponse" type="tns:RecordFilingResponse"/>
+
+  <xs:element name="GetCase" type="tns:GetCase"/>
+
+  <xs:element name="GetCaseResponse" type="tns:GetCaseResponse"/>
+
+  <xs:element name="GetCaseList" type="tns:GetCaseList"/>
+
+  <xs:element name="GetCaseListResponse" type="tns:GetCaseListResponse"/>
+
+  <xs:element name="tfreqprc_XML" type="tns:tfreqprc_XML"/>
+
+  <xs:element name="tfreqprc_XMLResponse" type="tns:tfreqprc_XMLResponse"/>
+
+  <xs:complexType name="tfreqprcInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IO_DOCUMENT" type="xs:string"/>
+      <xs:element minOccurs="0" name="IO_FUNCTION" type="xs:string"/>
+      <xs:element minOccurs="0" name="IO_XML" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tfreqprcResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IO_XML" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RecordFiling">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:tfreqprcInput"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RecordFilingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RecordFilingResponseMessage" type="tns:tfreqprcResult"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:tfreqprcInput"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tfreqprcResult"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCaseList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:tfreqprcInput"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCaseListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tfreqprcResult"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tfreqprc_XML">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:tfreqprcInput"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tfreqprc_XMLResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
